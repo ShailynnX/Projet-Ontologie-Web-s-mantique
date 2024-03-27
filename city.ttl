@@ -1,0 +1,364 @@
+@prefix : <http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6> .
+
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#est
+:est rdf:type owl:ObjectProperty ;
+     rdfs:subPropertyOf owl:topObjectProperty ;
+     rdfs:domain :Ville ;
+     rdfs:range :NiveauDeVille .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#hasGDP
+:hasGDP rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :Ville ;
+        rdfs:range :GDP .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#30,000-
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#30,000-> rdf:type owl:DatatypeProperty ;
+                                                                                       rdfs:domain :PrixMoyenAuM2 ;
+                                                                                       rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#30,000-50,000
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#30,000-50,000> rdf:type owl:DatatypeProperty ;
+                                                                                             rdfs:domain :PrixMoyenAuM2 ;
+                                                                                             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#50,000+
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#50,000+> rdf:type owl:DatatypeProperty ;
+                                                                                       rdfs:domain :PrixMoyenAuM2 ;
+                                                                                       rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Administration
+:Administration rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#AttractionTouristique
+:AttractionTouristique rdf:type owl:Class ;
+                       rdfs:subClassOf :Tourisme .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#CatastropheNaturelle
+:CatastropheNaturelle rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Climat
+:Climat rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Commerce
+:Commerce rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#CoûtDeLaVie
+:CoûtDeLaVie rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#DroitDachat
+:DroitDachat rdf:type owl:Class ;
+             rdfs:subClassOf :Administration .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Education
+:Education rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#GDP
+:GDP rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#GDP_Haut
+:GDP_Haut rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :est ;
+                                owl:someValuesFrom :Niveau1
+                              ] ;
+          rdfs:subClassOf :GDP .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#HôpitalGénéral
+:HôpitalGénéral rdf:type owl:Class ;
+                rdfs:subClassOf :SystèmeMédical .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#HôpitalSpécial
+:HôpitalSpécial rdf:type owl:Class ;
+                rdfs:subClassOf :SystèmeMédical .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Niveau1
+:Niveau1 rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGDP ;
+                               owl:someValuesFrom :GDP_Haut
+                             ] ;
+         rdfs:subClassOf :NiveauDeVille ;
+         owl:disjointWith :Niveau2 ,
+                          :Niveau3 .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Niveau2
+:Niveau2 rdf:type owl:Class ;
+         rdfs:subClassOf :NiveauDeVille ;
+         owl:disjointWith :Niveau3 .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Niveau3
+:Niveau3 rdf:type owl:Class ;
+         rdfs:subClassOf :NiveauDeVille .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#NiveauDeVille
+:NiveauDeVille rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Peuplement
+:Peuplement rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Population
+:Population rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Position
+:Position rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#PrixBas
+:PrixBas rdf:type owl:Class ;
+         rdfs:subClassOf :PrixMoyenAuM2 .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#PrixElevé
+:PrixElevé rdf:type owl:Class ;
+           rdfs:subClassOf :PrixMoyenAuM2 .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#PrixMoyen
+:PrixMoyen rdf:type owl:Class ;
+           rdfs:subClassOf :PrixMoyenAuM2 .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#PrixMoyenAuM2
+:PrixMoyenAuM2 rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Superficie
+:Superficie rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#SystèmeMédical
+:SystèmeMédical rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#TauxDesPlusValues
+:TauxDesPlusValues rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Taxe
+:Taxe rdf:type owl:Class ;
+      rdfs:subClassOf :Administration .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Topographie
+:Topographie rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Tourisme
+:Tourisme rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Transport
+:Transport rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Université
+:Université rdf:type owl:Class ;
+            rdfs:subClassOf :Education .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Verdissement
+:Verdissement rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Ville
+:Ville rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#211
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#211> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf :Université .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#985
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#985> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf :Université .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Aéroport
+:Aéroport rdf:type owl:NamedIndividual ,
+                   :Transport .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#BeaucoupCommerce
+:BeaucoupCommerce rdf:type owl:NamedIndividual ,
+                           :Commerce .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Beijing
+:Beijing rdf:type owl:NamedIndividual ,
+                  :Ville ;
+         :est :Niveau1Ville ;
+         :hasGDP :GDPHaut .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Bus
+:Bus rdf:type owl:NamedIndividual ,
+              :Transport .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Chengdu
+:Chengdu rdf:type owl:NamedIndividual ,
+                  :Ville .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#ClimatContinentalMonsoon
+:ClimatContinentalMonsoon rdf:type owl:NamedIndividual ,
+                                   :Climat .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#ClimatOcéanique
+:ClimatOcéanique rdf:type owl:NamedIndividual ,
+                          :Climat .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#ClimatSubtropicalHumide
+:ClimatSubtropicalHumide rdf:type owl:NamedIndividual ,
+                                  :Climat .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#ClimatTropical
+:ClimatTropical rdf:type owl:NamedIndividual ,
+                         :Climat .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Forêt
+:Forêt rdf:type owl:NamedIndividual ,
+                :Verdissement .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#GDPBas
+:GDPBas rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#GDPHaut
+:GDPHaut rdf:type owl:NamedIndividual ,
+                  :GDP_Haut .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#GDPMoyen
+:GDPMoyen rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Guangzhou
+:Guangzhou rdf:type owl:NamedIndividual ,
+                    :Ville .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Inondation
+:Inondation rdf:type owl:NamedIndividual ,
+                     :CatastropheNaturelle .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Kunming
+:Kunming rdf:type owl:NamedIndividual ,
+                  :Ville .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Métro
+:Métro rdf:type owl:NamedIndividual ,
+                :Transport .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Niveau1Ville
+:Niveau1Ville rdf:type owl:NamedIndividual ,
+                       :Niveau1 .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#PeuCommerce
+:PeuCommerce rdf:type owl:NamedIndividual ,
+                      :Commerce .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Prix30000-
+:Prix30000- rdf:type owl:NamedIndividual ,
+                     :PrixBas .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Prix30000-50000
+:Prix30000-50000 rdf:type owl:NamedIndividual ,
+                          :PrixMoyen .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Sanya
+:Sanya rdf:type owl:NamedIndividual ,
+                :Ville .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Shanghai
+:Shanghai rdf:type owl:NamedIndividual ,
+                   :Ville .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Séisme
+:Séisme rdf:type owl:NamedIndividual ,
+                 :CatastropheNaturelle .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#TempêteDeSable
+:TempêteDeSable rdf:type owl:NamedIndividual ,
+                         :CatastropheNaturelle .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Tramway
+:Tramway rdf:type owl:NamedIndividual ,
+                  :Transport .
+
+
+###  http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Prix50000+
+<http://www.semanticweb.org/shailynnxie/ontologies/2023/2/untitled-ontology-6#Prix50000+> rdf:type owl:NamedIndividual ,
+                                                                                                   :PrixElevé .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
